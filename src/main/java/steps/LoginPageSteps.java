@@ -5,8 +5,8 @@ import pages.LoginPage;
 
 public class LoginPageSteps {
     LoginPage loginPage = new LoginPage();
-    String userEmail = "sipin1997@gmail.com";
-    String userPassword = "KPfghucwi5WQ7Fg";
+    String userEmail = "";
+    String userPassword = "";
 
     public void entrance() {
         loginPage
