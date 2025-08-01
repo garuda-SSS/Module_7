@@ -15,6 +15,6 @@ public class SelenideExtension implements BeforeAllCallback {
         Configuration.timeout = 20000;
         Configuration.pageLoadTimeout = 70000;
         Configuration.pollingInterval = 200;
-        Configuration.baseUrl = "https://cinescope.t-qa.ru/";
+        Configuration.baseUrl = "https://cinescope.t-qa.ru";
     }
 }

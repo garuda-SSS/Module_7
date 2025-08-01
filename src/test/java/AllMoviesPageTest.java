@@ -1,15 +1,20 @@
-import junit.SelenideExtension;
+import junit.UITest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import steps.LoginPageSteps;
+import steps.AllMoviesPageSteps;
 
-@ExtendWith(SelenideExtension.class)
+import static org.assertj.core.api.Assertions.assertThat;
+
+@UITest
 public class AllMoviesPageTest {
 
-    LoginPageSteps q = new LoginPageSteps();
+    String genreValue = "Драма";
+    AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test
-    public void justTest(){
-    q.entrance();
+    public void genreFilterTest() {
+        allMoviesPageSteps
+                .openAllMovies()
+                .useGenreFilter(genreValue);
+        assertThat(allMoviesPageSteps.genreCheck(genreValue)).isTrue();
     }
 }
