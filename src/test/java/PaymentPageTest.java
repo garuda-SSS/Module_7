@@ -1,4 +1,6 @@
+import io.qameta.allure.Allure;
 import junit.UITest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.PaymentPageSteps;
 import steps.ReviewPageSteps;
@@ -20,6 +22,7 @@ public class PaymentPageTest {
     ReviewPageSteps reviewPageSteps = new ReviewPageSteps();
 
     @Test
+    @DisplayName("Тест оплаты билета")  // Будет отображаться вместо имени метода
     public void publishCommentTest() {
         reviewPageSteps
                 .openMovie()
@@ -29,7 +32,10 @@ public class PaymentPageTest {
                 .setCardInfo(cardNumber, cardHolder, cardCvc)
                 .dateSet(cardMonth, cardYear)
                 .buttonClick();
-        assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);
+        Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
+            assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);
+        });
+
     }
 
 

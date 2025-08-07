@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.LoginPage;
 
 import java.io.File;
@@ -31,6 +32,7 @@ public class LoginPageSteps {
         }
     }
 
+    @Step("Авторизация")
     public void entrance() {
         loginPage
                 .openPage()

@@ -1,4 +1,6 @@
+import io.qameta.allure.Allure;
 import junit.UITest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.AllMoviesPageSteps;
 
@@ -11,10 +13,14 @@ public class AllMoviesPageTest {
     AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test
+    @DisplayName("Тест фильтра по жанрам")  // Будет отображаться вместо имени метода
     public void genreFilterTest() {
         allMoviesPageSteps
                 .openAllMovies()
                 .useGenreFilter(genreValue);
-        assertThat(allMoviesPageSteps.genreCheck(genreValue)).isTrue();
+        Allure.step("Проверяем, что все фильмы в выдаче были с выбранным жанром", () -> {
+            assertThat(allMoviesPageSteps.genreCheck(genreValue)).isTrue();
+        });
+
     }
 }

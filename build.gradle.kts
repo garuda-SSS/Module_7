@@ -16,7 +16,11 @@ dependencies {
     testImplementation("io.qameta.allure:allure-assertj:2.29.1")
     implementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
     implementation("org.aspectj:aspectjweaver:1.9.22")
-    implementation("org.jsoup:jsoup:1.17.2") }
+    implementation("org.jsoup:jsoup:1.17.2")
+    testImplementation("io.qameta.allure:allure-junit5:2.29.1")
+    implementation("io.qameta.allure:allure-assertj:2.29.1")
+}
+
 
 tasks.test {
     useJUnitPlatform()
