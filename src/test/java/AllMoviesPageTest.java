@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @UITest
 public class AllMoviesPageTest {
 
-    String genreValue = "Драма";
+    private String genreValue = "Драма";
     AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test

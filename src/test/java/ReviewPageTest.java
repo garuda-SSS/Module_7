@@ -1,4 +1,5 @@
 import junit.UITest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import steps.ReviewPageSteps;
 
@@ -20,6 +21,9 @@ public class ReviewPageTest {
         assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);
     }
 
+    @AfterEach
+    public void delete() {
+        reviewPageSteps.deleteComment("Test Admin");
+    }
 
 }
-

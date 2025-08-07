@@ -16,10 +16,6 @@ public class LoginPage {
 
     public LoginPage openPage() {
         open("/login");
-        return this;
-    }
-
-    public LoginPage enter() {
         enterBtn.shouldBe(visible, Duration.ofSeconds(10)).click();
         return this;
     }

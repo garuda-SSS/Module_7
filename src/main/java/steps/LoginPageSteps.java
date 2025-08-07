@@ -9,11 +9,16 @@ import java.util.Properties;
 
 
 public class LoginPageSteps {
-    LoginPage loginPage = new LoginPage();
-    String userEmail;
-    String userPassword;
+    private LoginPage loginPage = new LoginPage();
+    private static String userEmail;
+    private static String userPassword;
 
-    public LoginPageSteps loadProperties() {
+
+    static {
+        loadProperties();
+    }
+
+    private static void  loadProperties() {
         File file = new File("src/test/resources/config.properties");
         Properties properties = new Properties();
 
@@ -24,14 +29,11 @@ public class LoginPageSteps {
         } catch (IOException e) {
             throw new RuntimeException("Failed to load properties file", e);
         }
-
-        return this;
     }
 
     public void entrance() {
         loginPage
                 .openPage()
-                .enter()
                 .setEmail(userEmail)
                 .setPassword(userPassword)
                 .submit();

@@ -34,7 +34,7 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage monthList() {
+    public PaymentPage openMonthList() {
         month.shouldBe(visible).click();
         return this;
     }

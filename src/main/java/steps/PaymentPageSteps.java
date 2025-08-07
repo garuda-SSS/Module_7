@@ -5,7 +5,7 @@ import pages.PaymentPage;
 public class PaymentPageSteps {
     PaymentPage paymentPage = new PaymentPage();
 
-    public PaymentPageSteps cardInfo(String number, String holder, String cvc) {
+    public PaymentPageSteps setCardInfo(String number, String holder, String cvc) {
         paymentPage
                 .setCardNumber(number)
                 .setCardHolder(holder)
@@ -15,7 +15,7 @@ public class PaymentPageSteps {
 
     public PaymentPageSteps dateSet(String month, String year) {
         paymentPage
-                .monthList()
+                .openMonthList()
                 .valueFromList(month)
                 .yearList()
                 .valueFromList(year);

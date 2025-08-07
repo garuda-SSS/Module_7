@@ -1,25 +1,24 @@
 package steps;
 
 import pages.AllMoviesPage;
-import pages.LoginPage;
 
 public class AllMoviesPageSteps {
-    AllMoviesPage allMoviesPage = new AllMoviesPage();
+    private AllMoviesPage allMoviesPage = new AllMoviesPage();
 
     public AllMoviesPageSteps openAllMovies() {
-        allMoviesPage.setAllMoviesLink();
+        allMoviesPage.allMoviesLinkClick();
         return this;
     }
 
     public AllMoviesPageSteps useGenreFilter(String genre) {
         allMoviesPage
-                .genreList()
+                .openGenreDropdown()
                 .setGenre(genre);
         return this;
     }
 
     public boolean genreCheck(String genre) {
-        return allMoviesPage.check(genre);
+        return allMoviesPage.checkGenre(genre);
     }
 
 }

@@ -15,7 +15,7 @@ public class ReviewPageSteps {
                 .setComment(text)
                 .clickRateList()
                 .setRate(rate)
-                .submitBtnClick();
+                .submitClick();
         return this;
     }
 
@@ -26,6 +26,12 @@ public class ReviewPageSteps {
 
     public void goToPayment() {
         reviewPage.goToPayment();
+    }
+
+    public void deleteComment(String username) {
+        reviewPage
+                .menuClick(username)
+                .deleteClick();
     }
 
 }

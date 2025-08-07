@@ -12,9 +12,9 @@ public class PaymentPageTest {
 
     String cardNumber = "4242424242424242";
     String cardHolder = "Ttttt";
-    String cardCvc= "123";
-    String cardMonth= "Декабрь";
-    String cardYear= "2025";
+    String cardCvc = "123";
+    String cardMonth = "Декабрь";
+    String cardYear = "2025";
     String alertDiscription = "Оплата прошла успешно";
     PaymentPageSteps paymentPageSteps = new PaymentPageSteps();
     ReviewPageSteps reviewPageSteps = new ReviewPageSteps();
@@ -26,7 +26,7 @@ public class PaymentPageTest {
                 .goToPayment();
 
         paymentPageSteps
-                .cardInfo(cardNumber, cardHolder, cardCvc)
+                .setCardInfo(cardNumber, cardHolder, cardCvc)
                 .dateSet(cardMonth, cardYear)
                 .buttonClick();
         assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);

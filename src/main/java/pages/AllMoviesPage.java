@@ -16,12 +16,12 @@ public class AllMoviesPage {
     private SelenideElement genreDescription = $x("//*[contains(@class, 'text-lg') and contains(@class, 'mt-5')]"); // Жанр
 
 
-    public AllMoviesPage setAllMoviesLink() {
+    public AllMoviesPage allMoviesLinkClick() {
         allMoviesLink.click();
         return this;
     }
 
-    public AllMoviesPage genreList() {
+    public AllMoviesPage openGenreDropdown() {
         genre.click();
         return this;
     }
@@ -31,7 +31,7 @@ public class AllMoviesPage {
         return this;
     }
 
-    public boolean check(String genre) {
+    public boolean checkGenre(String genre) {
         movies.shouldHave(sizeGreaterThan(0));
         boolean checkStatus = true;
         for(SelenideElement movie: movies) {

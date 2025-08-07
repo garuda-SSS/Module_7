@@ -10,7 +10,6 @@ public class LoginExtension implements BeforeEachCallback {
     public void beforeEach(ExtensionContext context) {
         LoginPageSteps page = new LoginPageSteps();
         page
-                .loadProperties()
                 .entrance();
     }
 }
