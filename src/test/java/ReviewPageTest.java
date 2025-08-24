@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReviewPageTest {
 
     String comment = "Енот(@_@)";
-    String alertDiscription = "Отзыв успешно создан";
+    String alertDescription = "Отзыв успешно создан";
     int rate = 3;
     ReviewPageSteps reviewPageSteps = new ReviewPageSteps();
 
@@ -22,12 +22,12 @@ public class ReviewPageTest {
                 .openMovie()
                 .publishComment(comment, rate);
         Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
-        assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);
+        assertThat(reviewPageSteps.getAlertText(alertDescription)).isEqualTo(alertDescription);
         });
     }
 
     @AfterEach
-    public void delete() {
+    public void deleteComment() {
         reviewPageSteps.deleteComment("Test Admin");
     }
 

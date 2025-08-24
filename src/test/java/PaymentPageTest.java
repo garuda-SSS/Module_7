@@ -17,7 +17,7 @@ public class PaymentPageTest {
     String cardCvc = "123";
     String cardMonth = "Декабрь";
     String cardYear = "2025";
-    String alertDiscription = "Оплата прошла успешно";
+    String alertDescription = "Оплата прошла успешно";
     PaymentPageSteps paymentPageSteps = new PaymentPageSteps();
     ReviewPageSteps reviewPageSteps = new ReviewPageSteps();
 
@@ -33,7 +33,7 @@ public class PaymentPageTest {
                 .dateSet(cardMonth, cardYear)
                 .buttonClick();
         Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
-            assertThat(reviewPageSteps.alertText(alertDiscription)).isEqualTo(alertDiscription);
+            assertThat(reviewPageSteps.getAlertText(alertDescription)).isEqualTo(alertDescription);
         });
 
     }
