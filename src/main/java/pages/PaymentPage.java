@@ -19,7 +19,7 @@ public class PaymentPage {
         return this;
     }
 
-    public void submitClick() {
+    public void clickSubmit() {
         submitBtn.click();
     }
 
@@ -32,19 +32,19 @@ public class PaymentPage {
         cvc.shouldBe(visible).setValue(number);
     }
 
-    public PaymentPage openMonthList() {
+    public PaymentPage selectMonth(String monthName) {
         month.shouldBe(visible).click();
+        this.selectValueFromList(monthName);
         return this;
     }
 
-    public PaymentPage yearListClick() {
+    public void selectYear(String yearNumber) {
         year.shouldBe(visible).click();
-        return this;
+        this.selectValueFromList(yearNumber);
     }
 
-    public PaymentPage valueFromListClick(String value) {
+    private void selectValueFromList(String value) {
         $x("//*[text() = '" + value + "']/parent::*[@class]").shouldBe(visible).click();
-        return this;
     }
 
 }

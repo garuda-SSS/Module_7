@@ -19,7 +19,7 @@ public class AllMoviesPageTest {
                 .openAllMovies()
                 .setGenreFilter(genreValue);
         Allure.step("Проверяем, что все фильмы в выдаче были с выбранным жанром", () -> {
-            assertThat(allMoviesPageSteps.checkGenreOfFirstPageMovies(genreValue)).isTrue();
+            assertThat(allMoviesPageSteps.verifyGenreOfMovies(genreValue)).isTrue();
         });
 
     }

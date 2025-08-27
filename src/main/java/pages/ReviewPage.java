@@ -19,16 +19,16 @@ public class ReviewPage {
     private final SelenideElement deleteBtn = $x("//*[text()='Удалить']"); //Пункт удалить в меню
 
 
-    public void paymentClick() {
+    public void clickPayment() {
         paymentBtn.click();
     }
 
-    public ReviewPage menuClick(String username) {
+    public ReviewPage clickMenu(String username) {
         $x("//h4[text()='" + username + "']/following-sibling::button[@aria-haspopup='menu']").click();
         return this;
     }
 
-    public void deleteClick() {
+    public void clickDelete() {
         deleteBtn.shouldBe(visible).click();
     }
 
@@ -46,7 +46,7 @@ public class ReviewPage {
     }
 
 
-    public ReviewPage rateListClick() {
+    public ReviewPage clickRateList() {
         rateList.shouldBe(visible).click();
         return this;
     }
@@ -56,7 +56,7 @@ public class ReviewPage {
         return this;
     }
 
-    public void submitClick() {
+    public void clickSubmit() {
         submitBtn.shouldBe(visible).click();
     }
 

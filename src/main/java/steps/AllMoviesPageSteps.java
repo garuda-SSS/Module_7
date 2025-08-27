@@ -8,20 +8,19 @@ public class AllMoviesPageSteps {
 
     @Step("Переходим к списку фильмов")
     public AllMoviesPageSteps openAllMovies() {
-        allMoviesPage.allMoviesLinkClick();
+        allMoviesPage.clickAllMoviesLink();
         return this;
     }
 
     @Step("Устанавливаем фильтр по жанру")
     public void setGenreFilter(String genre) {
         allMoviesPage
-                .openGenreDropdown()
-                .genreClick(genre);
+                .setGenre(genre);
     }
 
     @Step("Проверяем, что в выдаче на первой странице фильмы с нужным жанром")
-    public boolean checkGenreOfFirstPageMovies(String genre) {
-        return allMoviesPage.checkGenreOfFirstPageMovies(genre);
+    public boolean verifyGenreOfMovies(String genre) {
+        return allMoviesPage.verifyGenreOfMovies(genre);
     }
 
 }

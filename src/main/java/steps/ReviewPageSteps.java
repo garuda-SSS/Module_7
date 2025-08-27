@@ -17,9 +17,9 @@ public class ReviewPageSteps {
     public void publishComment(String text, int rate) {
         reviewPage
                 .setComment(text)
-                .rateListClick()
+                .clickRateList()
                 .setRate(rate)
-                .submitClick();
+                .clickSubmit();
     }
 
     @Step("Получение текста алерта")
@@ -29,14 +29,14 @@ public class ReviewPageSteps {
 
     @Step("Переход к оплате билета")
     public void goToPayment() {
-        reviewPage.paymentClick();
+        reviewPage.clickPayment();
     }
 
     @Step("Удаление комментария")
     public void deleteComment(String username) {
         reviewPage
-                .menuClick(username)
-                .deleteClick();
+                .clickMenu(username)
+                .clickDelete();
     }
 
 }

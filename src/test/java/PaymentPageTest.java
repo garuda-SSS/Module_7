@@ -30,8 +30,8 @@ public class PaymentPageTest {
 
         paymentPageSteps
                 .setCardInfo(cardNumber, cardHolder, cardCvc)
-                .dateSet(cardMonth, cardYear)
-                .buttonClick();
+                .setDate(cardMonth, cardYear)
+                .clickButton();
         Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
             assertThat(reviewPageSteps.getAlertText(alertDescription)).isEqualTo(alertDescription);
         });

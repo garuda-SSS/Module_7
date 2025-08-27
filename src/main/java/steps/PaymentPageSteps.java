@@ -16,19 +16,17 @@ public class PaymentPageSteps {
     }
 
     @Step("Ввод даты окончания действия карты")
-    public PaymentPageSteps dateSet(String month, String year) {
+    public PaymentPageSteps setDate(String month, String year) {
         paymentPage
-                .openMonthList()
-                .valueFromListClick(month)
-                .yearListClick()
-                .valueFromListClick(year);
+                .selectMonth(month)
+                .selectYear(year);
         return this;
     }
 
     @Step("Нажимает кнопку Оплатить")
-    public void buttonClick() {
+    public void clickButton() {
         paymentPage
-                .submitClick();
+                .clickSubmit();
     }
 
 }

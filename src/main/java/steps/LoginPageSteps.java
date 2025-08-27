@@ -38,6 +38,6 @@ public class LoginPageSteps {
                 .openPage()
                 .setEmail(userEmail)
                 .setPassword(userPassword)
-                .submitClick();
+                .clickSubmit();
     }
 }

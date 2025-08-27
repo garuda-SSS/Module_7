@@ -30,7 +30,7 @@ public class LoginPage {
         return this;
     }
 
-    public void submitClick() {
+    public void clickSubmit() {
         submitBtn.click();
     }
 }
