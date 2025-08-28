@@ -2,6 +2,7 @@ import io.qameta.allure.Allure;
 import junit.UITest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import steps.AllMoviesPageSteps;
 import steps.PaymentPageSteps;
 import steps.ReviewPageSteps;
 
@@ -12,22 +13,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PaymentPageTest {
 
 
-    String cardNumber = "4242424242424242";
-    String cardHolder = "Ttttt";
-    String cardCvc = "123";
-    String cardMonth = "Декабрь";
-    String cardYear = "2025";
-    String alertDescription = "Оплата прошла успешно";
-    PaymentPageSteps paymentPageSteps = new PaymentPageSteps();
-    ReviewPageSteps reviewPageSteps = new ReviewPageSteps();
+    private final String cardNumber = "4242424242424242";
+    private final String cardHolder = "Ttttt";
+    private final String cardCvc = "123";
+    private final String cardMonth = "Декабрь";
+    private final String cardYear = "2025";
+    private final String alertDescription = "Оплата прошла успешно";
+    private  PaymentPageSteps paymentPageSteps;
+    private final AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
+    private ReviewPageSteps reviewPageSteps;
 
     @Test
     @DisplayName("Тест оплаты билета")  // Будет отображаться вместо имени метода
     public void publishCommentTest() {
-        reviewPageSteps
-                .openMovie()
-                .goToPayment();
-
+        reviewPageSteps = allMoviesPageSteps.openMovie();
+        paymentPageSteps = reviewPageSteps.goToPayment();
         paymentPageSteps
                 .setCardInfo(cardNumber, cardHolder, cardCvc)
                 .setDate(cardMonth, cardYear)

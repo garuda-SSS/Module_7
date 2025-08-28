@@ -33,7 +33,7 @@ public class LoginPageSteps {
     }
 
     @Step("Авторизация")
-    public void entrance() {
+    public void login() {
         loginPage
                 .openPage()
                 .setEmail(userEmail)

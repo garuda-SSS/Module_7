@@ -7,11 +7,7 @@ public class ReviewPageSteps {
     private final ReviewPage reviewPage = new ReviewPage();
 
 
-    @Step("Открытие произвольного фильма")
-    public ReviewPageSteps openMovie() {
-        reviewPage.goToRandomMovie();
-        return this;
-    }
+
 
     @Step("Публикация комметария")
     public void publishComment(String text, int rate) {
@@ -28,8 +24,9 @@ public class ReviewPageSteps {
     }
 
     @Step("Переход к оплате билета")
-    public void goToPayment() {
+    public PaymentPageSteps goToPayment() {
         reviewPage.clickPayment();
+        return new PaymentPageSteps();
     }
 
     @Step("Удаление комментария")

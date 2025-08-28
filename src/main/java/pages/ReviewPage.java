@@ -14,7 +14,6 @@ public class ReviewPage {
     private final SelenideElement comment = $x("//*[@name='text']"); // Поле для комментариев
     private final SelenideElement submitBtn = $x("//*[@type='submit']"); // Отправка комментария
     private final SelenideElement rateList = $x("//*[@role=\"combobox\"]"); // Дропдаун с оценками
-    private final ElementsCollection moviesList = $$x("//*[contains(@data-qa-id, 'more')]"); //Все фильмы на странице
     private final SelenideElement paymentBtn = $x("//*[@id=\"root\"]/div[1]/main/section/div[1]/div[2]/button"); //Переход к оплате
     private final SelenideElement deleteBtn = $x("//*[text()='Удалить']"); //Пункт удалить в меню
 
@@ -34,11 +33,7 @@ public class ReviewPage {
 
 
 
-    public void goToRandomMovie()
-    {
-        moviesList.shouldHave(sizeGreaterThan(0));
-        moviesList.get(new Random().nextInt(moviesList.size()-1)).click();
-    }
+
 
     public ReviewPage setComment(String text) {
         comment.shouldBe(visible).setValue(text);

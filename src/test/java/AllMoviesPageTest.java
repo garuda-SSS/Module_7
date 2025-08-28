@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AllMoviesPageTest {
 
     private final String genreValue = "Драма";
-    AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
+    private final AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test
     @DisplayName("Тест фильтра по жанрам")  // Будет отображаться вместо имени метода

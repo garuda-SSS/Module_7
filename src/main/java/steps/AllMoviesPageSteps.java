@@ -23,4 +23,10 @@ public class AllMoviesPageSteps {
         return allMoviesPage.verifyGenreOfMovies(genre);
     }
 
+    @Step("Открытие произвольного фильма")
+    public ReviewPageSteps openMovie() {
+        allMoviesPage.goToRandomMovie();
+        return new ReviewPageSteps();
+    }
+
 }
