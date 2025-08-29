@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
-    private SelenideElement email = $x("//*[@id='email']"); //Поле для почты
-    private SelenideElement password = $x("//*[@id='password']"); //Поле для пароля
-    private SelenideElement submitBtn = $x("//*/button"); //Кнопка для входа
-    private SelenideElement enterBtn = $x("//*/a/button"); //Кнопка Вход на главной
+    private final SelenideElement email = $x("//*[@id='email']"); //Поле для почты
+    private final SelenideElement password = $x("//*[@id='password']"); //Поле для пароля
+    private final SelenideElement submitBtn = $x("//*/button"); //Кнопка для входа
+    private final SelenideElement enterBtn = $x("//*/a/button"); //Кнопка Вход на главной
 
 
     public LoginPage openPage() {
@@ -30,7 +30,7 @@ public class LoginPage {
         return this;
     }
 
-    public void submit() {
+    public void clickSubmit() {
         submitBtn.click();
     }
 }

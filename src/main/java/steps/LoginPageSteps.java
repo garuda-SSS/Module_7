@@ -10,7 +10,7 @@ import java.util.Properties;
 
 
 public class LoginPageSteps {
-    private LoginPage loginPage = new LoginPage();
+    private final LoginPage loginPage = new LoginPage();
     private static String userEmail;
     private static String userPassword;
 
@@ -33,11 +33,11 @@ public class LoginPageSteps {
     }
 
     @Step("Авторизация")
-    public void entrance() {
+    public void login() {
         loginPage
                 .openPage()
                 .setEmail(userEmail)
                 .setPassword(userPassword)
-                .submit();
+                .clickSubmit();
     }
 }

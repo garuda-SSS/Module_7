@@ -6,12 +6,12 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class PaymentPage {
-    private SelenideElement card = $x("//*[@name='card.cardNumber']"); //Номер карты
-    private SelenideElement holderName = $x("//*[@name='card.cardHolder']"); //Владелец карты
-    private SelenideElement cvc = $x("//*[@name='card.securityCode']"); //Cvc
-    private SelenideElement month = $x("//*[@id='month']"); //Месяц
-    private SelenideElement year = $x("//*[@id='year']"); //Год
-    private SelenideElement submit = $x("//*[text()='Оплатить']"); //Кнопка оплатить
+    private final SelenideElement card = $x("//*[@name='card.cardNumber']"); //Номер карты
+    private final SelenideElement holderName = $x("//*[@name='card.cardHolder']"); //Владелец карты
+    private final SelenideElement cvc = $x("//*[@name='card.securityCode']"); //Cvc
+    private final SelenideElement month = $x("//*[@id='month']"); //Месяц
+    private final SelenideElement year = $x("//*[@id='year']"); //Год
+    private final SelenideElement submitBtn = $x("//*[text()='Оплатить']"); //Кнопка оплатить
 
 
     public PaymentPage setCardNumber(String number) {
@@ -19,9 +19,8 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage submitClick() {
-        submit.click();
-        return this;
+    public void clickSubmit() {
+        submitBtn.click();
     }
 
     public PaymentPage setCardHolder(String holder) {
@@ -29,24 +28,23 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage setCvc(String number) {
+    public void setCvc(String number) {
         cvc.shouldBe(visible).setValue(number);
-        return this;
     }
 
-    public PaymentPage openMonthList() {
+    public PaymentPage selectMonth(String monthName) {
         month.shouldBe(visible).click();
+        this.selectValueFromList(monthName);
         return this;
     }
 
-    public PaymentPage yearList() {
+    public void selectYear(String yearNumber) {
         year.shouldBe(visible).click();
-        return this;
+        this.selectValueFromList(yearNumber);
     }
 
-    public PaymentPage valueFromList(String value) {
+    private void selectValueFromList(String value) {
         $x("//*[text() = '" + value + "']/parent::*[@class]").shouldBe(visible).click();
-        return this;
     }
 
 }

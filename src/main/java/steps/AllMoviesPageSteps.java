@@ -4,25 +4,29 @@ import io.qameta.allure.Step;
 import pages.AllMoviesPage;
 
 public class AllMoviesPageSteps {
-    private AllMoviesPage allMoviesPage = new AllMoviesPage();
+    private final AllMoviesPage allMoviesPage = new AllMoviesPage();
 
     @Step("Переходим к списку фильмов")
     public AllMoviesPageSteps openAllMovies() {
-        allMoviesPage.allMoviesLinkClick();
+        allMoviesPage.clickAllMoviesLink();
         return this;
     }
 
     @Step("Устанавливаем фильтр по жанру")
-    public AllMoviesPageSteps useGenreFilter(String genre) {
+    public void setGenreFilter(String genre) {
         allMoviesPage
-                .openGenreDropdown()
                 .setGenre(genre);
-        return this;
     }
 
     @Step("Проверяем, что в выдаче на первой странице фильмы с нужным жанром")
-    public boolean genreCheck(String genre) {
-        return allMoviesPage.checkGenre(genre);
+    public boolean verifyGenreOfMovies(String genre) {
+        return allMoviesPage.verifyGenreOfMovies(genre);
+    }
+
+    @Step("Открытие произвольного фильма")
+    public ReviewPageSteps openMovie() {
+        allMoviesPage.goToRandomMovie();
+        return new ReviewPageSteps();
     }
 
 }

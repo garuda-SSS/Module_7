@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import pages.PaymentPage;
 
 public class PaymentPageSteps {
-    PaymentPage paymentPage = new PaymentPage();
+    private final PaymentPage paymentPage = new PaymentPage();
 
     @Step("Ввод номера, владельца и CVC карты")
     public PaymentPageSteps setCardInfo(String number, String holder, String cvc) {
@@ -16,20 +16,17 @@ public class PaymentPageSteps {
     }
 
     @Step("Ввод даты окончания действия карты")
-    public PaymentPageSteps dateSet(String month, String year) {
+    public PaymentPageSteps setDate(String month, String year) {
         paymentPage
-                .openMonthList()
-                .valueFromList(month)
-                .yearList()
-                .valueFromList(year);
+                .selectMonth(month)
+                .selectYear(year);
         return this;
     }
 
     @Step("Нажимает кнопку Оплатить")
-    public PaymentPageSteps buttonClick() {
+    public void clickButton() {
         paymentPage
-                .submitClick();
-        return this;
+                .clickSubmit();
     }
 
 }

@@ -9,17 +9,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 @UITest
 public class AllMoviesPageTest {
 
-    private String genreValue = "Драма";
-    AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
+    private final String genreValue = "Драма";
+    private final AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test
     @DisplayName("Тест фильтра по жанрам")  // Будет отображаться вместо имени метода
     public void genreFilterTest() {
         allMoviesPageSteps
                 .openAllMovies()
-                .useGenreFilter(genreValue);
+                .setGenreFilter(genreValue);
         Allure.step("Проверяем, что все фильмы в выдаче были с выбранным жанром", () -> {
-            assertThat(allMoviesPageSteps.genreCheck(genreValue)).isTrue();
+            assertThat(allMoviesPageSteps.verifyGenreOfMovies(genreValue)).isTrue();
         });
 
     }
