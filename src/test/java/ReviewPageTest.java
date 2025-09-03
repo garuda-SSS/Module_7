@@ -27,7 +27,6 @@ public class ReviewPageTest {
     private static final UserSteps userSteps = new UserSteps();
     private static AuthResponse adminUser;
     private static final MovieSteps movieSteps = new MovieSteps();
-    private static int number;
 
     @BeforeAll
     public static void takeAdminUser() {
@@ -36,28 +35,18 @@ public class ReviewPageTest {
 
     @AfterEach
     public void deleteComment() {
-        movieSteps.deleteComment(number, adminUser);
+        movieSteps.deleteComment(reviewPageSteps.takeNumberOfCurrentMovie(), adminUser);
     }
 
     @Test
     @DisplayName("Тест публикации комментария")  // Будет отображаться вместо имени метода
     public void publishCommentTest() {
         reviewPageSteps = allMoviesPageSteps.openMovie();
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        Pattern pattern = Pattern.compile("/(\\d+)$");
-        Matcher matcher = pattern.matcher(currentUrl);
-
-        if (matcher.find()) {
-            // Совпадение найдено - можно безопасно использовать group()
-            String numberStr = matcher.group(1); // "62"
-            number = Integer.parseInt(numberStr);
-
-            reviewPageSteps
-                    .publishComment(comment, rate);
-            Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
-                assertThat(reviewPageSteps.getAlertText(alertDescription)).isEqualTo(alertDescription);
-            });
-        }
-
+        reviewPageSteps
+                .publishComment(comment, rate);
+        Allure.step("Сравниванием фактический текст появившегося алерта с ожидаемым", () -> {
+            assertThat(reviewPageSteps.getAlertText(alertDescription)).isEqualTo(alertDescription);
+        });
     }
+
 }
