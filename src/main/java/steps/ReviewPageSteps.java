@@ -36,4 +36,9 @@ public class ReviewPageSteps {
                 .clickDelete();
     }
 
+
+    public int takeNumberOfCurrentMovie(){
+        return reviewPage.takeNumberOfCurrentMovie();
+    }
+
 }
