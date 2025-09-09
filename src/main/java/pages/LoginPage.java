@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -16,7 +17,7 @@ public class LoginPage {
 
     public LoginPage openPage() {
         open("/login");
-        enterBtn.shouldBe(visible, Duration.ofSeconds(30)).click();
+        enterBtn.shouldBe(clickable, Duration.ofSeconds(100)).click();
         return this;
     }
 
