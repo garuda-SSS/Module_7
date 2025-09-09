@@ -28,7 +28,7 @@ public class SelenideExtension implements BeforeAllCallback, AfterEachCallback {
         Configuration.baseUrl = "https://cinescope.t-qa.ru";
 
         // Настройки удаленного запуска
-        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.remote = "http://host.docker.internal:4444/wd/hub";
 
         // Настройка возможностей браузера для Selenoid
         Configuration.browserCapabilities = new org.openqa.selenium.remote.DesiredCapabilities();
