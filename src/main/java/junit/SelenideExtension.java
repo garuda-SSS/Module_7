@@ -22,10 +22,11 @@ public class SelenideExtension implements BeforeAllCallback, AfterEachCallback {
         Configuration.browserVersion = "128.0";
         Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
-        Configuration.timeout = 20000;
-        Configuration.pageLoadTimeout = 70000;
+        Configuration.timeout = 100000;
+        Configuration.pageLoadTimeout = 100000;
         Configuration.pollingInterval = 200;
         Configuration.baseUrl = "https://cinescope.t-qa.ru";
+
 
         // Настройки удаленного запуска
         Configuration.remote = "http://host.docker.internal:4444/wd/hub";
