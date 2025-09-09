@@ -12,7 +12,7 @@ public class LoginPage {
     private final SelenideElement email = $x("//*[@id='email']"); //Поле для почты
     private final SelenideElement password = $x("//*[@id='password']"); //Поле для пароля
     private final SelenideElement submitBtn = $x("//*/button"); //Кнопка для входа
-    private final SelenideElement enterBtn = $x("//*/a/button"); //Кнопка Вход на главной
+    private final SelenideElement enterBtn = $x("//*[@id=\"root\"]/header/div/div/a/button"); //Кнопка Вход на главной
 
 
     public LoginPage openPage() {
