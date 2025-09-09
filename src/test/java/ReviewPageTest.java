@@ -1,10 +1,7 @@
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
 import junit.UITest;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.cinescope.api.dto.AuthResponse;
 import ru.cinescope.api.steps.MovieSteps;
 import ru.cinescope.api.steps.UserSteps;
@@ -39,6 +36,7 @@ public class ReviewPageTest {
     }
 
     @Test
+    @Tag("regress")
     @DisplayName("Тест публикации комментария")  // Будет отображаться вместо имени метода
     public void publishCommentTest() {
         reviewPageSteps = allMoviesPageSteps.openMovie();
