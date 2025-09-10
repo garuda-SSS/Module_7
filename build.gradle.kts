@@ -20,7 +20,11 @@ dependencies {
 
 
 tasks.test {
-    useJUnitPlatform()
+    useJUnitPlatform(){
+        if (project.hasProperty("tags")) {
+            includeTags(project.property("tags") as String)
+        }
+    }
 
     // Включаем параллельное выполнение
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
