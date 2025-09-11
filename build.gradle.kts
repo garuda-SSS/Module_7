@@ -20,5 +20,18 @@ dependencies {
 
 
 tasks.test {
-    useJUnitPlatform()
+    useJUnitPlatform(){
+        if (project.hasProperty("tags")) {
+            includeTags(project.property("tags") as String)
+        }
+    }
+
+    // Включаем параллельное выполнение
+    systemProperty("junit.jupiter.execution.parallel.enabled", "true")
+    systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
+    systemProperty("junit.jupiter.execution.parallel.mode.classes.default", "concurrent")
+
+    // По одному потоку на тест (каждый тест в отдельном браузере)
+    systemProperty("junit.jupiter.execution.parallel.config.strategy", "fixed")
+    systemProperty("junit.jupiter.execution.parallel.config.fixed.parallelism", "4")
 }

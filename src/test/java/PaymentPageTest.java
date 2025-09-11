@@ -1,6 +1,8 @@
 import io.qameta.allure.Allure;
 import junit.UITest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import steps.AllMoviesPageSteps;
 import steps.PaymentPageSteps;
@@ -24,6 +26,10 @@ public class PaymentPageTest {
     private ReviewPageSteps reviewPageSteps;
 
     @Test
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regress")
+    })
     @DisplayName("Тест оплаты билета")  // Будет отображаться вместо имени метода
     public void publishCommentTest() {
         reviewPageSteps = allMoviesPageSteps.openMovie();

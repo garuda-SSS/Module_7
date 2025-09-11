@@ -1,6 +1,8 @@
 import io.qameta.allure.Allure;
 import junit.UITest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import steps.AllMoviesPageSteps;
 
@@ -13,6 +15,10 @@ public class AllMoviesPageTest {
     private final AllMoviesPageSteps allMoviesPageSteps = new AllMoviesPageSteps();
 
     @Test
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regress")
+    })
     @DisplayName("Тест фильтра по жанрам")  // Будет отображаться вместо имени метода
     public void genreFilterTest() {
         allMoviesPageSteps
